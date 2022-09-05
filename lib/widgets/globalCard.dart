@@ -48,6 +48,7 @@ class GlobalCasesCard extends StatelessWidget {
                       child: Text(
                         globalNewCases,
                         style: TextStyle(
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -74,6 +75,7 @@ class GlobalCasesCard extends StatelessWidget {
                       child: Text(
                         globalRecovered,
                         style: TextStyle(
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -100,6 +102,7 @@ class GlobalCasesCard extends StatelessWidget {
                       child: Text(
                         globalDeaths,
                         style: TextStyle(
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -121,6 +124,14 @@ class GlobalCasesCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(25),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
       ),
     );
   }
