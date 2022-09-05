@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:dio/dio.dart';
+
+import '../widgets/globalCard.dart';
+import '../widgets/lkCard.dart';
+import '../widgets/localCard.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,17 +13,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var newCases = "";
+  String globalNewCases = "6510016";
+  String globalRecovered = "225913434";
+  String globalDeaths = "5047622";
+  String localTotalCases = "670127";
+  String localActiveCases = "453";
+  String localNewCases = "";
+  String localDeaths = "4";
+
   var url = "https://www.hpb.health.gov.lk/api/get-current-statistical";
 
   Dio dio = Dio();
 
-  Future<void> getData() async {
+  Future<void> getCovidData() async {
     try {
       var response = await dio.get("$url");
-      print(response.data);
-      newCases = response.data['local_new_cases'];
-      print(newCases);
+      //print(response.data);
+      localNewCases = response.data['local_new_cases'];
+      print(localNewCases);
     } catch (e) {
       print(e);
     }
@@ -39,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
                 Icon(
-                  Icons.list,
+                  Icons.list_rounded,
                   size: 50,
                   color: Color(0xFF5689C0),
                 ), //app drawer icon
@@ -83,217 +93,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Container(
+          SizedBox(
             height: 465,
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
-                    padding: EdgeInsets.all(10),
-                    width: double.infinity,
-                    height: 200,
-                    //world status today
-                    child: Column(
-                      children: [
-                        Text(
-                          "Global Status",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 100,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    borderRadius: BorderRadius.circular(100),
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                                Text("New Cases"),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 100,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    borderRadius: BorderRadius.circular(100),
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                                Text("Recovered"),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 100,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    borderRadius: BorderRadius.circular(100),
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                                Text("Deaths"),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
-                    padding: EdgeInsets.all(10),
-                    //LK today
-                    child: Row(
-                      children: [
-                        Container(
-                          //flag
-                          width: 70,
-                          height: 70,
-                          margin: EdgeInsets.only(
-                            right: 10,
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/images/LK flag.png"),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            //country
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Sri Lanka"),
-                              Text("LK"),
-                            ],
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          child: Text("Today"),
-                        ), //date
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                  ),
-                  Container(
-                    //LK Status
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          child: Column(
-                            children: [
-                              Container(
-                                width: 150,
-                                height: 80,
-                                margin: EdgeInsets.all(10),
-                                //total cases
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("3,786"),
-                                    SizedBox(height: 5),
-                                    Text("Total Cases"),
-                                  ],
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              Container(
-                                width: 150,
-                                height: 80,
-                                margin: EdgeInsets.all(10),
-                                //today new cases
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("289"),
-                                    SizedBox(height: 5),
-                                    Text("New Cases"),
-                                  ],
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            children: [
-                              Container(
-                                margin: EdgeInsets.all(10),
-                                width: 150,
-                                height: 80,
-                                child: Column(
-                                  //today active cases
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("86"),
-                                    SizedBox(height: 5),
-                                    Text("Active Cases"),
-                                  ],
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.all(10),
-                                width: 150,
-                                height: 80,
-                                //today deaths
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("10"),
-                                    SizedBox(height: 5),
-                                    Text("Deaths"),
-                                  ],
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  GlobalCasesCard(
+                      globalNewCases: globalNewCases,
+                      globalRecovered: globalRecovered,
+                      globalDeaths: globalDeaths),
+                  const LKCard(),
+                  LocalCasesCard(
+                      localTotalCases: localTotalCases,
+                      localNewCases: localNewCases,
+                      localActiveCases: localActiveCases,
+                      localDeaths: localDeaths),
                 ],
               ),
             ),
@@ -302,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.all(15),
             child: ElevatedButton(
               //Refresh Btn
-              onPressed: getData,
+              onPressed: getCovidData,
               child: Container(
                 width: 100,
                 height: 20,
