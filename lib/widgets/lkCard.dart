@@ -7,19 +7,20 @@ class LKCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(0.04 * size.width),
       //LK today
       child: Row(
         children: [
           Container(
             //flag
-            width: 70,
-            height: 70,
-            margin: EdgeInsets.only(
-              right: 10,
-            ),
+            // width: 70,
+            // height: 70,
+            width: 0.2 * size.width,
+            height: 0.08 * size.width,
+            margin: EdgeInsets.only(right: 0.01 * size.width),
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/LK flag.png"),
@@ -31,14 +32,31 @@ class LKCard extends StatelessWidget {
               //country
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Sri Lanka"),
-                Text("LK"),
+                Text(
+                  "Sri Lanka",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "LK",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ],
             ),
           ),
           Spacer(),
           Container(
-            child: Text("Today"),
+            child: Text(
+              "Today",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ), //date
         ],
       ),

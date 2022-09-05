@@ -14,99 +14,104 @@ class GlobalCasesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(0.05 * size.width),
       width: double.infinity,
-      height: 200,
+      // height: 220,
+      height: 0.21 * size.height,
       //world status today
       child: Column(
         children: [
           Text(
-            "Global Status",
+            "Global Cases",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 0.02 * size.height),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 40),
+                  CircleAvatar(
+                    maxRadius: 0.1 * size.width,
+                    backgroundColor: Colors.blue,
+                    child: CircleAvatar(
+                      maxRadius: 0.09 * size.width,
+                      backgroundColor: Colors.white,
                       child: Text(
                         globalNewCases,
-                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(100),
+                  ),
+                  SizedBox(height: 0.01 * size.height),
+                  Text(
+                    "New Cases",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text("New Cases"),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 40),
+                  CircleAvatar(
+                    maxRadius: 0.1 * size.width,
+                    backgroundColor: Colors.blue,
+                    child: CircleAvatar(
+                      maxRadius: 0.09 * size.width,
+                      backgroundColor: Colors.white,
                       child: Text(
                         globalRecovered,
-                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(100),
+                  ),
+                  SizedBox(height: 0.01 * size.height),
+                  Text(
+                    "Recovered",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text("Recovered"),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 40),
+                  CircleAvatar(
+                    maxRadius: 0.1 * size.width,
+                    backgroundColor: Colors.blue,
+                    child: CircleAvatar(
+                      maxRadius: 0.09 * size.width,
+                      backgroundColor: Colors.white,
                       child: Text(
                         globalDeaths,
-                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(100),
+                  ),
+                  SizedBox(height: 0.01 * size.height),
+                  Text(
+                    "Deaths",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text("Deaths"),
                 ],
               ),
             ],

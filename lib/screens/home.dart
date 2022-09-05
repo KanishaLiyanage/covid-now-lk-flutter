@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       var response = await dio.get("$url");
       //print(response.data);
-      localNewCases = response.data['local_new_cases'];
+      localNewCases = response.data.local_new_cases;
       print(localNewCases);
     } catch (e) {
       print(e);
@@ -38,10 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xFFEAEBED),
       body: Column(
-        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             margin: EdgeInsets.fromLTRB(25, 70, 25, 20),
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 25),
+            padding: EdgeInsets.symmetric(horizontal: 0.05 * size.width),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -80,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           //good morning
           Container(
-            padding: EdgeInsets.all(25),
+            padding: EdgeInsets.all(0.05 * size.width),
             child: Row(
               children: [
                 Text(
@@ -94,7 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(
-            height: 465,
+            // height: 465,
+            height: 0.6 * size.height,
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -113,13 +115,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(5),
             child: ElevatedButton(
               //Refresh Btn
               onPressed: getCovidData,
               child: Container(
-                width: 100,
-                height: 20,
+                width: 0.4 * size.width,
+                height: 0.02 * size.height,
                 child: Text(
                   "Refresh",
                   textAlign: TextAlign.center,

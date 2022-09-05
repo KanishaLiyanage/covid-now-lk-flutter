@@ -16,94 +16,118 @@ class LocalCasesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(
-          child: Column(
-            children: [
-              Container(
-                width: 150,
-                height: 80,
-                margin: EdgeInsets.all(10),
-                //total cases
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(localTotalCases),
-                    SizedBox(height: 5),
-                    Text("Total Cases"),
-                  ],
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      margin: EdgeInsets.only(top: 0.04 * size.width),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            child: Column(
+              children: [
+                Container(
+                  width: 0.3 * size.width,
+                  height: 0.16 * size.width,
+                  margin: EdgeInsets.all(0.02 * size.width),
+                  //total cases
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(localTotalCases),
+                      SizedBox(height: 0.01 * size.width),
+                      Text(
+                        "Total Cases",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+                Container(
+                  width: 0.3 * size.width,
+                  height: 0.16 * size.width,
+                  margin: EdgeInsets.all(0.02 * size.width),
+                  //today new cases
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(localNewCases),
+                      SizedBox(height: 0.01 * size.width),
+                      Text(
+                        "New Cases",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-              ),
-              Container(
-                width: 150,
-                height: 80,
-                margin: EdgeInsets.all(10),
-                //today new cases
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(localNewCases),
-                    SizedBox(height: 5),
-                    Text("New Cases"),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Container(
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.all(10),
-                width: 150,
-                height: 80,
-                child: Column(
-                  //today active cases
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(localActiveCases),
-                    SizedBox(height: 5),
-                    Text("Active Cases"),
-                  ],
+          Container(
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(0.02 * size.width),
+                  width: 0.3 * size.width,
+                  height: 0.16 * size.width,
+                  child: Column(
+                    //today active cases
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(localActiveCases),
+                      SizedBox(height: 0.01 * size.width),
+                      Text(
+                        "Active Cases",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
+                Container(
+                  margin: EdgeInsets.all(0.02 * size.width),
+                  width: 0.3 * size.width,
+                  height: 0.16 * size.width,
+                  //today deaths
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(localDeaths),
+                      SizedBox(height: 0.01 * size.width),
+                      Text(
+                        "Deaths",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                width: 150,
-                height: 80,
-                //today deaths
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(localDeaths),
-                    SizedBox(height: 5),
-                    Text("Deaths"),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
