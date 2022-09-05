@@ -13,13 +13,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String globalNewCases = "6510016";
-  String globalRecovered = "225913434";
-  String globalDeaths = "5047622";
-  String localTotalCases = "670127";
-  String localActiveCases = "453";
-  String localNewCases = "";
-  String localDeaths = "4";
+  var globalNewCases = "6510016";
+  var globalRecovered = "225913434";
+  var globalDeaths = "5047622";
+  var localTotalCases = "670127";
+  var localActiveCases = "453";
+  var localNewCases = "";
+  var localDeaths = "4";
 
   var url = "https://www.hpb.health.gov.lk/api/get-current-statistical";
 
@@ -29,12 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
     var response = await dio.get("$url");
     try {
       if (response.statusCode == 200) {
-        //print(response.data);
-        localNewCases = response.data["local_new_cases"];
+        print(response.data);
+        localNewCases = response.data['local_new_cases'];
         print(localNewCases);
         final snackBar = SnackBar(
           content: const Text('Data has been updated!'),
-          backgroundColor: (Color(0xFF5689C0)),
+          backgroundColor: (Color(0xFF018ABD)),
           action: SnackBarAction(
             label: 'dismiss',
             onPressed: () {},
@@ -197,11 +197,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: Drawer(
         child: Container(
-          padding: EdgeInsets.all(0.1 * size.width),
+          padding: EdgeInsets.fromLTRB(
+            0.05 * size.width,
+            0.1 * size.height,
+            0.05 * size.width,
+            0.05 * size.width,
+          ),
           color: Color(0xFF5689C0),
           child: Material(
             color: Color(0xFF5689C0),
-            child: ListView(
+            child: Column(
               children: [
                 CircleAvatar(
                   radius: 100,
@@ -210,7 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 0.1 * size.width),
                 Container(
-                  height: 100,
+                  height: 0.2 * size.height,
                   width: double.infinity,
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(),
@@ -238,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Divider(color: Colors.white),
-                SizedBox(height: 0.5 * size.height),
+                SizedBox(height: 0.265 * size.height),
                 ListTile(
                   leading: Icon(
                     Icons.logout_rounded,

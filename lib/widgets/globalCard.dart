@@ -19,10 +19,10 @@ class GlobalCasesCard extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(25, 10, 25, 10),
       padding: EdgeInsets.all(0.05 * size.width),
       width: double.infinity,
-      // height: 220,
-      height: 0.21 * size.height,
+      height: 0.26 * size.height,
       //world status today
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             "Global Cases",
@@ -49,7 +49,7 @@ class GlobalCasesCard extends StatelessWidget {
                       child: Text(
                         globalNewCases,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 0.03 * size.width,
                           fontWeight: FontWeight.w500,
                           color: Color(0xFF004581),
                         ),
@@ -78,7 +78,7 @@ class GlobalCasesCard extends StatelessWidget {
                       child: Text(
                         globalRecovered,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 0.0265 * size.width,
                           fontWeight: FontWeight.w500,
                           color: Color(0xFF004581),
                         ),
@@ -107,7 +107,7 @@ class GlobalCasesCard extends StatelessWidget {
                       child: Text(
                         globalDeaths,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 0.03 * size.width,
                           fontWeight: FontWeight.w500,
                           color: Color(0xFF004581),
                         ),
