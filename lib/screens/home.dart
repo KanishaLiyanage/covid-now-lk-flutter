@@ -26,13 +26,46 @@ class _HomeScreenState extends State<HomeScreen> {
   Dio dio = Dio();
 
   Future<void> getCovidData() async {
+    var response = await dio.get("$url");
     try {
-      var response = await dio.get("$url");
-      //print(response.data);
-      localNewCases = response.data.local_new_cases;
-      print(localNewCases);
+      if (response.statusCode == 200) {
+        //print(response.data);
+        localNewCases = response.data["local_new_cases"];
+        print(localNewCases);
+        final snackBar = SnackBar(
+          content: const Text('Data has been updated!'),
+          backgroundColor: (Colors.blue),
+          action: SnackBarAction(
+            label: 'dismiss',
+            onPressed: () {},
+            textColor: Colors.white,
+          ),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      } else {
+        final snackBar = SnackBar(
+          content: const Text('Server is not responding.'),
+          backgroundColor: (Colors.red),
+          action: SnackBarAction(
+            label: 'dismiss',
+            onPressed: () {},
+            textColor: Colors.white,
+          ),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
     } catch (e) {
       print(e);
+      final snackBar = SnackBar(
+        content: const Text('There is an error in fetching data.'),
+        backgroundColor: (Colors.red),
+        action: SnackBarAction(
+          label: 'dismiss',
+          onPressed: () {},
+          textColor: Colors.white,
+        ),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 
@@ -50,11 +83,22 @@ class _HomeScreenState extends State<HomeScreen> {
               margin: EdgeInsets.fromLTRB(25, 70, 25, 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Icon(
-                    Icons.list_rounded,
-                    size: 50,
-                    color: Color(0xFF5689C0),
+                children: [
+                  Builder(
+                    builder: (BuildContext context) {
+                      return IconButton(
+                        icon: Icon(
+                          Icons.list_rounded,
+                          size: 50,
+                          color: Color(0xFF5689C0),
+                        ),
+                        onPressed: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                        tooltip: MaterialLocalizations.of(context)
+                            .openAppDrawerTooltip,
+                      );
+                    },
                   ), //app drawer icon
                   CircleAvatar(
                     backgroundImage: NetworkImage(
@@ -143,6 +187,70 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ],
+        ),
+      ),
+      drawer: Drawer(
+        child: Container(
+          padding: EdgeInsets.all(0.1 * size.width),
+          color: Color(0xFF5689C0),
+          child: Material(
+            color: Color(0xFF5689C0),
+            child: ListView(
+              children: [
+                CircleAvatar(
+                  radius: 100,
+                  backgroundImage: NetworkImage(
+                      'https://images.unsplash.com/photo-1588862081167-d5b98006637e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YmF0bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60'),
+                ),
+                SizedBox(height: 0.1 * size.width),
+                Container(
+                  height: 100,
+                  width: double.infinity,
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "userName",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "userEmail",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Divider(color: Colors.white),
+                SizedBox(height: 0.5 * size.height),
+                ListTile(
+                  leading: Icon(
+                    Icons.logout_rounded,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    "Logout",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
