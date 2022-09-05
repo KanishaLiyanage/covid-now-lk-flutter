@@ -37,12 +37,14 @@ class LKCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
+                    color: Color(0xFF004581),
                   ),
                 ),
                 Text(
                   "LK",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
+                    color: Color(0xFF018ABD),
                   ),
                 ),
               ],
@@ -55,6 +57,7 @@ class LKCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: Color(0xFF018ABD),
               ),
             ),
           ), //date

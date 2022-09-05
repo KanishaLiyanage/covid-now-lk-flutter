@@ -33,12 +33,18 @@ class LocalCasesCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(localTotalCases),
+                      Text(
+                        localTotalCases,
+                        style: TextStyle(
+                          color: Color(0xFF004581),
+                        ),
+                      ),
                       SizedBox(height: 0.01 * size.width),
                       Text(
                         "Total Cases",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
+                          color: Color(0xFF5689C0),
                         ),
                       ),
                     ],
@@ -64,12 +70,18 @@ class LocalCasesCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(localNewCases),
+                      Text(
+                        localNewCases,
+                        style: TextStyle(
+                          color: Color(0xFF004581),
+                        ),
+                      ),
                       SizedBox(height: 0.01 * size.width),
                       Text(
                         "New Cases",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
+                          color: Color(0xFF5689C0),
                         ),
                       ),
                     ],
@@ -101,12 +113,18 @@ class LocalCasesCard extends StatelessWidget {
                     //today active cases
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(localActiveCases),
+                      Text(
+                        localActiveCases,
+                        style: TextStyle(
+                          color: Color(0xFF004581),
+                        ),
+                      ),
                       SizedBox(height: 0.01 * size.width),
                       Text(
                         "Active Cases",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
+                          color: Color(0xFF5689C0),
                         ),
                       ),
                     ],
@@ -132,12 +150,18 @@ class LocalCasesCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(localDeaths),
+                      Text(
+                        localDeaths,
+                        style: TextStyle(
+                          color: Color(0xFF004581),
+                        ),
+                      ),
                       SizedBox(height: 0.01 * size.width),
                       Text(
                         "Deaths",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
+                          color: Color(0xFF5689C0),
                         ),
                       ),
                     ],

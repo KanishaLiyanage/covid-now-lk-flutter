@@ -30,6 +30,7 @@ class GlobalCasesCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
+              color: Color(0xFF004581),
             ),
           ),
           SizedBox(height: 0.02 * size.height),
@@ -41,7 +42,7 @@ class GlobalCasesCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     maxRadius: 0.1 * size.width,
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF5689C0),
                     child: CircleAvatar(
                       maxRadius: 0.09 * size.width,
                       backgroundColor: Colors.white,
@@ -50,6 +51,7 @@ class GlobalCasesCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
+                          color: Color(0xFF004581),
                         ),
                       ),
                     ),
@@ -59,6 +61,7 @@ class GlobalCasesCard extends StatelessWidget {
                     "New Cases",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
+                      color: Color(0xFF5689C0),
                     ),
                   ),
                 ],
@@ -68,7 +71,7 @@ class GlobalCasesCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     maxRadius: 0.1 * size.width,
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF5689C0),
                     child: CircleAvatar(
                       maxRadius: 0.09 * size.width,
                       backgroundColor: Colors.white,
@@ -77,6 +80,7 @@ class GlobalCasesCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
+                          color: Color(0xFF004581),
                         ),
                       ),
                     ),
@@ -86,6 +90,7 @@ class GlobalCasesCard extends StatelessWidget {
                     "Recovered",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
+                      color: Color(0xFF5689C0),
                     ),
                   ),
                 ],
@@ -95,7 +100,7 @@ class GlobalCasesCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     maxRadius: 0.1 * size.width,
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF5689C0),
                     child: CircleAvatar(
                       maxRadius: 0.09 * size.width,
                       backgroundColor: Colors.white,
@@ -104,6 +109,7 @@ class GlobalCasesCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
+                          color: Color(0xFF004581),
                         ),
                       ),
                     ),
@@ -113,6 +119,7 @@ class GlobalCasesCard extends StatelessWidget {
                     "Deaths",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
+                      color: Color(0xFF5689C0),
                     ),
                   ),
                 ],

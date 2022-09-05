@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         print(localNewCases);
         final snackBar = SnackBar(
           content: const Text('Data has been updated!'),
-          backgroundColor: (Colors.blue),
+          backgroundColor: (Color(0xFF5689C0)),
           action: SnackBarAction(
             label: 'dismiss',
             onPressed: () {},
@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 0.05 * size.width),
+              padding: EdgeInsets.symmetric(horizontal: 0.06 * size.width),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -118,6 +118,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Good Morning,",
                         style: TextStyle(
                           fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF004581),
                         ),
                       ),
                     ],
@@ -127,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //good morning
             Container(
-              padding: EdgeInsets.all(0.05 * size.width),
+              padding: EdgeInsets.symmetric(horizontal: 0.07 * size.width),
               child: Row(
                 children: [
                   Text(
@@ -135,6 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
+                      color: Color(0xFF004581),
                     ),
                   ),
                 ],
@@ -173,6 +176,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Refresh",
                     textAlign: TextAlign.center,
                   ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFF5689C0),
                 ),
               ),
               decoration: BoxDecoration(
