@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 import '../widgets/globalCard.dart';
 import '../widgets/lkCard.dart';
@@ -31,19 +29,23 @@ class _HomeScreenState extends State<HomeScreen> {
     var response = await dio.get("$url");
     try {
       if (response.statusCode == 200) {
-        print(response.data);
+        //print(response.data['data']['global_new_cases']);
 
         setState(() {
-          globalNewCases = response.data['global_new_cases'];
-          globalRecovered = response.data['global_recovered'];
-          globalDeaths = response.data['global_deaths'];
-          localTotalCases = response.data['local_total_cases'];
-          localActiveCases = response.data['local_active_cases'];
-          localNewCases = response.data['local_new_cases'];
-          localDeaths = response.data['local_new_deaths'];
+          globalNewCases = response.data['data']['global_new_cases'].toString();
+          globalRecovered =
+              response.data['data']['global_recovered'].toString();
+          globalDeaths = response.data['data']['global_deaths'].toString();
+          localTotalCases =
+              response.data['data']['local_total_cases'].toString();
+          localActiveCases =
+              response.data['data']['local_active_cases'].toString();
+          localNewCases = response.data['data']['local_new_cases'].toString();
+          localDeaths = response.data['data']['local_new_deaths'].toString();
         });
 
         print(localNewCases);
+        print(globalNewCases);
 
         final snackBar = SnackBar(
           content: const Text('Data has been updated!'),
@@ -285,15 +287,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-  // Future<void> getCovidData() async {
-  //   //replace your restFull API here.
-  //   String url = "https://www.hpb.health.gov.lk/api/get-current-statistical";
-  //   final response = await http.get(Uri.parse(url));
-
-  //   var responseData = json.decode(response.body);
-  //   globalNewCases = responseData['global_new_cases'];
-
-  //   print(responseData);
-  //   print(globalNewCases);
-  // }
