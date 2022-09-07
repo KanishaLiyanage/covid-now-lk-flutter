@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 
 import '../widgets/globalCard.dart';
 import '../widgets/lkCard.dart';
+import '../widgets/updateTimeCard.dart';
 import '../widgets/localCard.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var localActiveCases = "";
   var localNewCases = "";
   var localDeaths = "";
+  String upTime = "";
 
   var url = "https://www.hpb.health.gov.lk/api/get-current-statistical";
 
@@ -42,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               response.data['data']['local_active_cases'].toString();
           localNewCases = response.data['data']['local_new_cases'].toString();
           localDeaths = response.data['data']['local_new_deaths'].toString();
+          upTime = response.data['data']['update_date_time'];
         });
 
         print(localNewCases);
@@ -176,6 +179,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         globalDeaths: globalDeaths),
                     SizedBox(height: 0.02 * size.height),
                     const LKCard(),
+                    SizedBox(height: 0.02 * size.height),
+                    UpdatedTimeCard(updatedTime: upTime),
+                    //SizedBox(height: 0.02 * size.height),
                     LocalCasesCard(
                         localTotalCases: localTotalCases,
                         localNewCases: localNewCases,
