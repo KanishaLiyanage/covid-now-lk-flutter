@@ -79,6 +79,9 @@ This will add a line like this to your package's pubspec.yaml.
   flutter pub get
   ```
 
+This app is using an API for fetching Sri Lanka Covid-19 real-time data. here is the Sri Lankan Covid-19 API documentation :point_down:
+https://www.hpb.health.gov.lk/en/api-documentation
+
 ### Installation
 
 _Below instructions are how to setup and run this app. Read this instructions very carefully!._
