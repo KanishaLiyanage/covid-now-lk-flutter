@@ -1,6 +1,5 @@
 <a name="readme-top"></a>
 
-<br />
 <div align="center">
   <h1 align="center">Covid Now LK Flutter app</h1>
   <br />
